@@ -9,7 +9,7 @@ const char* BGCOL = 0xd021;
 const char* COLS = 0xd800;
 const char BLACK = 0;
 const char WHITE = 1;
-char[]MESSAGE = "checkpoint2 by chen1616!";
+char[]MESSAGE = "checkpoint2.1 by chen1616!";
 
 void main(){
     *VIC_MEMORY = 0x14;
