@@ -383,7 +383,6 @@ while(true) {
 			}	
      
  #pragma data_seg(Syscall) 
- 
  struct SysCall{
      char xjmp;
      void()* syscall;
