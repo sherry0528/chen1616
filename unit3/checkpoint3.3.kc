@@ -27,8 +27,7 @@ void main(){
  void print_to_screen(char *message){
  while(*message){
    *(current_screen_line + current_screen_x) = *message++;
-   current_screen_x++;
- }
+   current_screen_x++;}
  }
  
  void print_raster_lines (){
@@ -135,325 +134,71 @@ break;}
 	 return 1;
 }
   
- void syscall1(){
-		*(SCREEN+80) = '(';
-		exit_hypervisor();
-			}
-			
-	void syscall2(){
-		*(SCREEN+79) = ')';
-		exit_hypervisor();
-			}
-				
-	void syscall3(){
-		*(SCREEN+78) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall4(){
-		*(SCREEN+77) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall5(){
-		*(SCREEN+76) = '(';
-		exit_hypervisor();
-			}
-			
-	void syscall6(){
-		*(SCREEN+75) = ')';
-		exit_hypervisor();
-			}
-				
-	void syscall7(){
-		*(SCREEN+74) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall8(){
-		*(SCREEN+73) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall9(){
-		*(SCREEN+72) = '(';
-		exit_hypervisor();
-			}
-			
-	void syscall10(){
-		*(SCREEN+71) = ')';
-		exit_hypervisor();
-			}
-				
-	void syscall11(){
-		*(SCREEN+70) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall12(){
-		*(SCREEN+69) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall13(){
-		*(SCREEN+68) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall14(){
-		*(SCREEN+67) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall15(){
-		*(SCREEN+66) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall16(){
-		*(SCREEN+65) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall17(){
-		*(SCREEN+64) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall18(){
-		*(SCREEN+63) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall19(){
-		*(SCREEN+62) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall20(){
-		*(SCREEN+61) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall21(){
-		*(SCREEN+60) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall22(){
-		*(SCREEN+59) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall23(){
-		*(SCREEN+58) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall24(){
-		*(SCREEN+57) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall25(){
-		*(SCREEN+56) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall26(){
-		*(SCREEN+55) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall27(){
-		*(SCREEN+54) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall28(){
-		*(SCREEN+53) = ')';
-		exit_hypervisor();
-			}
-						
-	void syscall29(){
-		*(SCREEN+52) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall30(){
-		*(SCREEN+51) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall31(){
-		*(SCREEN+50) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall32(){
-		*(SCREEN+49) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall33(){
-		*(SCREEN+48) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall34(){
-		*(SCREEN+47) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall35(){
-		*(SCREEN+46) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall36(){
-		*(SCREEN+45) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall37(){
-		*(SCREEN+44) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall38(){
-		*(SCREEN+43) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall39(){
-		*(SCREEN+42) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall40(){
-		*(SCREEN+41) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall41(){
-		*(SCREEN+40) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall42(){
-		*(SCREEN+39) = ')';
-	 exit_hypervisor();
-			}
-			
-	void syscall43(){
-		*(SCREEN+38) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall44(){
-		*(SCREEN+37) = ')';
-		exit_hypervisor();
-			}
-						
-	void syscall45(){
-		*(SCREEN+36) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall46(){
-		*(SCREEN+35) = ')';
-		exit_hypervisor();
-			}
-			
-  void syscall47(){
-		*(SCREEN+34) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall48(){
-		*(SCREEN+33) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall49(){
-		*(SCREEN+32) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall50(){
-		*(SCREEN+31) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall51(){
-		*(SCREEN+30) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall52(){
-		*(SCREEN+29) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall53(){
-		*(SCREEN+28) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall54(){
-		*(SCREEN+27) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall55(){
-		*(SCREEN+26) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall56(){
-		*(SCREEN+25) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall57(){
-		*(SCREEN+24) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall58(){
-		*(SCREEN+23) = ')';
-		exit_hypervisor();
-			}
-			
-	void syscall59(){
-		*(SCREEN+22) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall60(){
-		*(SCREEN+21) = ')';
-		exit_hypervisor();
-			}
-						
-	void syscall61(){
-		*(SCREEN+20) = '(';
-		exit_hypervisor();
-			}
-	
-	void syscall62(){
-		*(SCREEN+19) = ')';
-		exit_hypervisor();
-			}
-	
-	void syscall63(){
-		*(SCREEN+18) = '(';
-		exit_hypervisor();
-			}
-			
-	void syscall64(){
-		*(SCREEN+17) = ')';
-		exit_hypervisor();
-			}
+ void syscall00(){exit_hypervisor();}
+  void syscall01(){exit_hypervisor();}
+	void syscall02(){exit_hypervisor();}
+	void syscall03(){exit_hypervisor();}
+	void syscall04(){exit_hypervisor();}
+	void syscall05(){exit_hypervisor();}
+	void syscall06(){exit_hypervisor();}
+	void syscall07(){exit_hypervisor();}
+	void syscall08(){exit_hypervisor();}
+	void syscall09(){exit_hypervisor();}
+	void syscall10(){exit_hypervisor();}
+	void syscall11(){exit_hypervisor();}
+	void syscall12(){exit_hypervisor();}
+	void syscall13(){exit_hypervisor();}
+	void syscall14(){exit_hypervisor();}
+	void syscall15(){exit_hypervisor();}
+	void syscall16(){exit_hypervisor();}
+	void syscall17(){exit_hypervisor();}
+	void syscall18(){exit_hypervisor();}
+	void syscall19(){exit_hypervisor();}
+	void syscall20(){exit_hypervisor();}
+	void syscall21(){exit_hypervisor();}
+	void syscall22(){exit_hypervisor();}
+	void syscall23(){exit_hypervisor();}
+	void syscall24(){exit_hypervisor();}
+	void syscall25(){exit_hypervisor();}
+	void syscall26(){exit_hypervisor();}
+	void syscall27(){exit_hypervisor();}
+	void syscall28(){exit_hypervisor();}
+	void syscall29(){exit_hypervisor();}
+	void syscall30(){exit_hypervisor();}
+	void syscall31(){exit_hypervisor();}
+	void syscall32(){exit_hypervisor();}
+	void syscall33(){exit_hypervisor();}
+	void syscall34(){exit_hypervisor();}
+	void syscall35(){exit_hypervisor();}
+	void syscall36(){exit_hypervisor();}
+	void syscall37(){exit_hypervisor();}
+	void syscall38(){exit_hypervisor();}
+	void syscall39(){exit_hypervisor();}
+	void syscall40(){exit_hypervisor();}
+	void syscall41(){exit_hypervisor();}	
+	void syscall42(){exit_hypervisor();}
+	void syscall43(){exit_hypervisor();}
+	void syscall44(){exit_hypervisor();}
+	void syscall45(){exit_hypervisor();}
+	void syscall46(){exit_hypervisor();}
+  void syscall47(){exit_hypervisor();}
+	void syscall48(){exit_hypervisor();}
+	void syscall49(){exit_hypervisor();}
+	void syscall50(){exit_hypervisor();}
+	void syscall51(){exit_hypervisor();}
+	void syscall52(){exit_hypervisor();}
+	void syscall53(){exit_hypervisor();}
+	void syscall54(){exit_hypervisor();}
+	void syscall55(){exit_hypervisor();}
+	void syscall56(){exit_hypervisor();}
+	void syscall57(){exit_hypervisor();}
+	void syscall58(){exit_hypervisor();}
+	void syscall59(){exit_hypervisor();}
+	void syscall60(){exit_hypervisor();}
+	void syscall61(){exit_hypervisor();}
+	void syscall62(){exit_hypervisor();}
+	void syscall63(){exit_hypervisor();}
+	void syscall64(){exit_hypervisor();}
 			
 	void pagfault(){
 		exit_hypervisor();
