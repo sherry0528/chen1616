@@ -76,14 +76,22 @@ void print_to_screen(char *message){
     char* msg = MESSAGE;
     current_screen_line = $0400;
     current_screen_x=0;
-    
-while(*msg){*sc++ = *msg++;}
+    while(*msg){*sc++ = *msg++;}
+
+    syscall01();
+    syscall02();
 
 		while(true){}
 			}	 
 			
-  void syscall01(){exit_hypervisor();}
-	void syscall02(){exit_hypervisor();}
+  void syscall01(){
+  print_newline();
+  print_to_screen("syscall00 entered");
+  exit_hypervisor();}
+	void syscall02(){
+	print_newline();
+  print_to_screen("syscall01 entered");
+  exit_hypervisor();}
 	void syscall03(){exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){exit_hypervisor();}
