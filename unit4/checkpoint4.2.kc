@@ -9,7 +9,7 @@ const char* BGCOL = 0xd021;
 const char* COLS = 0xd800;
 const char BLACK = 0;
 const char WHITE = 1;
-char[]MESSAGE = "checkpoint4.1 by chen1616!";
+char[]MESSAGE = "checkpoint4.2 by chen1616!";
 
 volatile unsigned char *current_screen_line;
 volatile unsigned char current_screen_x;
@@ -93,7 +93,7 @@ void print_to_screen(char *message){
 	print_newline();
   print_to_screen("syscall01 entered");
   exit_hypervisor();}
-	
+  
 	void syscall03(){exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){exit_hypervisor();}
