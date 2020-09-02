@@ -369,8 +369,9 @@ exit_hypervisor();
 	     *VIC_MEMORY = 0x14;
     memset(SCREEN, ' ', 40*25);
     memset(COLS, WHITE,40*25);
+    
 	start_simple_program();
-		exit_hypervisor();
+
 		while(true){}
 			}	
 	
