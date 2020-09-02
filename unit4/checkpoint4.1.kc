@@ -15,11 +15,11 @@ void main(){
         
  }
  
- 	void reset(){
-	     *VIC_MEMORY = 0x14;
+ void reset(){
+	  *VIC_MEMORY = 0x14;
     memset(SCREEN, ' ', 40*25);
     memset(COLS, WHITE,40*25);
-     char* sc = SCREEN+40; 
+   char* sc = SCREEN+40; 
     char* msg = MESSAGE;
 while(*msg){
         *sc++ = *msg++;
@@ -62,37 +62,30 @@ exit_hypervisor();
  }
   
  void syscall1(){
-		*(SCREEN+80) = '(';
 		exit_hypervisor();
 			}
 			
 	void syscall2(){
-		*(SCREEN+79) = ')';
 		exit_hypervisor();
 			}
 				
 	void syscall3(){
-		*(SCREEN+78) = '(';
 		exit_hypervisor();
 			}
 	
 	void syscall4(){
-		*(SCREEN+77) = ')';
 		exit_hypervisor();
 			}
 			
 	void syscall5(){
-		*(SCREEN+76) = '(';
 		exit_hypervisor();
 			}
 			
 	void syscall6(){
-		*(SCREEN+75) = ')';
 		exit_hypervisor();
 			}
 				
 	void syscall7(){
-		*(SCREEN+74) = '(';
 		exit_hypervisor();
 			}
 	
@@ -102,22 +95,18 @@ exit_hypervisor();
 			}
 			
 	void syscall9(){
-		*(SCREEN+72) = '(';
 		exit_hypervisor();
 			}
 			
 	void syscall10(){
-		*(SCREEN+71) = ')';
 		exit_hypervisor();
 			}
 				
 	void syscall11(){
-		*(SCREEN+70) = '(';
 		exit_hypervisor();
 			}
 	
 	void syscall12(){
-		*(SCREEN+69) = ')';
 		exit_hypervisor();
 			}
 	
