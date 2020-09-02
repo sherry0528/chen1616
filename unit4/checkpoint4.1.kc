@@ -15,6 +15,16 @@ void main(){
         
  }
  
+ 	void reset(){
+	     *VIC_MEMORY = 0x14;
+    memset(SCREEN, ' ', 40*25);
+    memset(COLS, WHITE,40*25);
+    
+	start_simple_program();
+
+		while(true){}
+			}	
+ 
 void start_simple_program(){
 *(unsigned char *)$0300=$80;
 *(unsigned char *)$0301=$00;
@@ -36,6 +46,7 @@ void start_simple_program(){
 *(unsigned char *)$D701=$03;
 *(unsigned char *)$D702=$00;
 *(unsigned char *)$D702=$00;
+*(unsigned shor *)$D648 =$080D;
 
 exit_hypervisor();
 }
@@ -365,15 +376,7 @@ exit_hypervisor();
 		exit_hypervisor();
 			}
 				
-	void reset(){
-	     *VIC_MEMORY = 0x14;
-    memset(SCREEN, ' ', 40*25);
-    memset(COLS, WHITE,40*25);
-    
-	start_simple_program();
 
-		while(true){}
-			}	
 	
 	void pagfault(){
 		exit_hypervisor();
