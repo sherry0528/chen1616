@@ -78,15 +78,18 @@ void print_to_screen(char *message){
     current_screen_x=0;
     
 while(*msg){*sc++ = *msg++;}
-        
- start_simple_program();
+      syscall00();
+      syscall01();  
 
 		while(true){}
 			}	 
+			
   void syscall00(){
+  print_newline();
   print_to_screen("syscall00 entered");
   exit_hypervisor();}
   void syscall01(){
+  print_newline();
   print_to_screen("syscall01 entered");
   exit_hypervisor();}
 	void syscall02(){exit_hypervisor();}
