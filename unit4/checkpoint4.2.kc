@@ -79,21 +79,21 @@ void print_to_screen(char *message){
     while(*msg){*sc++ = *msg++;}
     
     print_newline();
+    syscall00();
     syscall01();
-    syscall02();
 
 		while(true){}
 			}	 
 			
-  void syscall01(){
+  void syscall00(){
   print_newline();
   print_to_screen("syscall00 entered");}
   
-	void syscall02(){
+	void syscall01(){
 	print_newline();
   print_to_screen("syscall01 entered");
   exit_hypervisor();}
-  
+  void syscall02(){exit_hypervisor();}
 	void syscall03(){exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){exit_hypervisor();}
@@ -155,7 +155,6 @@ void print_to_screen(char *message){
 	void syscall61(){exit_hypervisor();}
 	void syscall62(){exit_hypervisor();}
 	void syscall63(){exit_hypervisor();}
-	void syscall64(){exit_hypervisor();}
 				
 
 	void pagfault(){exit_hypervisor();}	
@@ -177,6 +176,7 @@ void print_to_screen(char *message){
  const char NOP = 0xea;
  
 export struct SysCall[] SYSCALLS = {
+    { JMP, &syscall00, NOP},
     { JMP, &syscall01, NOP},
     { JMP, &syscall02, NOP},
     { JMP, &syscall03, NOP},
@@ -239,8 +239,7 @@ export struct SysCall[] SYSCALLS = {
     { JMP, &syscall60, NOP},
     { JMP, &syscall61, NOP},
     { JMP, &syscall62, NOP},
-    { JMP, &syscall63, NOP},
-    { JMP, &syscall64, NOP}
+    { JMP, &syscall63, NOP}
     };
     
 export align(0x100) struct SysCall[] TRAPS = {
