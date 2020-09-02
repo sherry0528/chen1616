@@ -77,8 +77,9 @@ void print_to_screen(char *message){
     current_screen_line = $0400;
     current_screen_x=0;
     while(*msg){*sc++ = *msg++;}
-
+    print_newline();
     syscall01();
+    print_newline();
     syscall02();
 
 		while(true){}
