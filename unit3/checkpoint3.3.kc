@@ -133,7 +133,10 @@ break;}
 	}
 	 return 1;
 }
-  
+   void syscall0(){
+		*(SCREEN+80) = '(';
+		exit_hypervisor();
+			}
   void syscall1(){
 		*(SCREEN+80) = '(';
 		exit_hypervisor();
@@ -493,6 +496,7 @@ break;}
  const char NOP = 0xea;
  
 export struct SysCall[] SYSCALLS = {
+{ JMP, &syscall0, NOP},
     { JMP, &syscall1, NOP},
     { JMP, &syscall2, NOP},
     { JMP, &syscall3, NOP},
