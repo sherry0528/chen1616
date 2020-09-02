@@ -452,10 +452,6 @@ break;}
 		exit_hypervisor();
 			}
 			
-	void syscall64(){
-		*(SCREEN+17) = ')';
-		exit_hypervisor();
-			}
 			
 	void pagfault(){
 		exit_hypervisor();
@@ -496,7 +492,7 @@ break;}
  const char NOP = 0xea;
  
 export struct SysCall[] SYSCALLS = {
-{ JMP, &syscall0, NOP},
+ { JMP, &syscall0, NOP},
     { JMP, &syscall1, NOP},
     { JMP, &syscall2, NOP},
     { JMP, &syscall3, NOP},
@@ -559,8 +555,7 @@ export struct SysCall[] SYSCALLS = {
     { JMP, &syscall60, NOP},
     { JMP, &syscall61, NOP},
     { JMP, &syscall62, NOP},
-    { JMP, &syscall63, NOP},
-    { JMP, &syscall64, NOP}
+    { JMP, &syscall63, NOP}
     };
     
 export align(0x100) struct SysCall[] TRAPS = {
