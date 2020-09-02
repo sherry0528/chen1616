@@ -85,8 +85,6 @@ while(*msg){*sc++ = *msg++;}
 			}	 
 			
   void syscall00(){
-  print_newline();
-  print_to_screen("syscall00 entered");
   exit_hypervisor();}
   void syscall01(){
   print_newline();
