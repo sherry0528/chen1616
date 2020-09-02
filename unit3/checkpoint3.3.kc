@@ -134,21 +134,21 @@ break;}
 	 return 1;
 }
   
-    void syscall00(){
+    void syscall0(){
 		*(SCREEN+81) = ')';
 		exit_hypervisor();
 			}
-  void syscall01(){
+  void syscall1(){
 		*(SCREEN+80) = '(';
 		exit_hypervisor();
 			}
 			
-	void syscall02(){
+	void syscall2(){
 		*(SCREEN+79) = ')';
 		exit_hypervisor();
 			}
 				
-	void syscall03(){
+	void syscall3(){
 		*(SCREEN+78) = '(';
 		exit_hypervisor();
 			}
@@ -158,27 +158,27 @@ break;}
 		exit_hypervisor();
 			}
 			
-	void syscall05(){
+	void syscall5(){
 		*(SCREEN+76) = '(';
 		exit_hypervisor();
 			}
 			
-	void syscall06(){
+	void syscall6(){
 		*(SCREEN+75) = ')';
 		exit_hypervisor();
 			}
 				
-	void syscall07(){
+	void syscall7(){
 		*(SCREEN+74) = '(';
 		exit_hypervisor();
 			}
 	
-	void syscall08(){
+	void syscall8(){
 		*(SCREEN+73) = ')';
 		exit_hypervisor();
 			}
 			
-	void syscall09(){
+	void syscall9(){
 		*(SCREEN+72) = '(';
 		exit_hypervisor();
 			}
@@ -497,16 +497,16 @@ break;}
  const char NOP = 0xea;
  
 export struct SysCall[] SYSCALLS = {
-    { JMP, &syscall00, NOP},
-    { JMP, &syscall01, NOP},
-    { JMP, &syscall02, NOP},
-    { JMP, &syscall03, NOP},
-    { JMP, &syscall04, NOP},
-    { JMP, &syscall05, NOP},
-    { JMP, &syscall06, NOP},
-    { JMP, &syscall07, NOP},
-    { JMP, &syscall08, NOP},
-    { JMP, &syscall09, NOP},
+    { JMP, &syscall0, NOP},
+    { JMP, &syscall1, NOP},
+    { JMP, &syscall2, NOP},
+    { JMP, &syscall3, NOP},
+    { JMP, &syscall4, NOP},
+    { JMP, &syscall5, NOP},
+    { JMP, &syscall6, NOP},
+    { JMP, &syscall7, NOP},
+    { JMP, &syscall8, NOP},
+    { JMP, &syscall9, NOP},
     { JMP, &syscall10, NOP},
     { JMP, &syscall11, NOP},
     { JMP, &syscall12, NOP},
