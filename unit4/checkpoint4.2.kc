@@ -87,10 +87,12 @@ void print_to_screen(char *message){
 			}	 
 			
   void syscall01(){
+  print_newline();
   print_to_screen("syscall00 entered");
   exit_hypervisor();}
   
 	void syscall02(){
+	print_newline();
   print_to_screen("syscall01 entered");
   exit_hypervisor();}
 	
