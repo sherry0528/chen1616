@@ -26,17 +26,9 @@ void main(){
 		while(true){}
 			}	
 			
-			 void print_raster_lines(){
- while(true) {
-      if(*RASTER==54 || *RASTER==66){
-           *BGCOL = WHITE;
-          }else{
-             *BGCOL = BLACK;
-          }
-       }
- }
  
 void start_simple_program(){
+
 *(unsigned char *)$0300=$80;
 *(unsigned char *)$0301=$00;
 *(unsigned char *)$0302=$81;
