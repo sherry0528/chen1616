@@ -19,11 +19,7 @@ void main(){
 	  *VIC_MEMORY = 0x14;
     memset(SCREEN, ' ', 40*25);
     memset(COLS, WHITE,40*25);
-   char* sc = SCREEN+40; 
-    char* msg = MESSAGE;
-while(*msg){
-        *sc++ = *msg++;
-        }
+
     
 	start_simple_program();
 
