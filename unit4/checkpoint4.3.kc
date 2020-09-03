@@ -1,4 +1,4 @@
-import"string"
+import"string.kc"
 
 #pragma link("mega65hyper.ld")
 
