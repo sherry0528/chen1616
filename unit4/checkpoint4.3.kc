@@ -80,7 +80,7 @@ void print_to_screen(char *message){
     
     print_newline();
     syscall00();
-    syscall01();
+
 
 		while(true){}
 			}	 
