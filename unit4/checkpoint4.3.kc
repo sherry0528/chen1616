@@ -165,6 +165,7 @@ void print_to_screen(char *message){
 	void cpukil(){exit_hypervisor();}	
      
  #pragma data_seg(Syscall) 
+ 
  struct SysCall{
      char xjmp;
      void()* syscall;
