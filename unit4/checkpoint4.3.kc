@@ -79,7 +79,7 @@ void print_to_screen(char *message){
     while(*msg){*sc++ = *msg++;}
     
     print_newline();
-    syscall00();
+
 
 
 		while(true){}
