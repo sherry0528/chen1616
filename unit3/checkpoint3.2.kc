@@ -17,18 +17,16 @@ unsigned char current_screen_x = 0;
 
 
 void main(){
-     
+    //empty now 
  }
  
  void exit_hypervisor() {
- *(unsigned char*)$D67F = $01;
- }
+ *(unsigned char*)$D67F = $01;}
  
  void print_to_screen(char *message){
  while(*message){
    *(current_screen_line + current_screen_x) = *message++;
-   current_screen_x++;
- }
+   current_screen_x++;}
  }
  
  void print_raster_lines (){
