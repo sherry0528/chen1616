@@ -1,4 +1,4 @@
-import"string"
+import"string.kc"
 
 #pragma link("mega65hyper.ld")
 
@@ -9,18 +9,31 @@ const char* BGCOL = 0xd021;
 const char* COLS = 0xd800;
 const char BLACK = 0;
 const char WHITE = 1;
-char[]MESSAGE = "checkpoint2.3 by chen1616!";
+char[]MESSAGE = "checkpoint2.5 by chen1616!";
+unsigned char *current_screen_line = $0400;
+unsigned char current_screen_x = 0;
 
 void main(){
-     *VIC_MEMORY = 0x14;
+    *VIC_MEMORY = 0x14;
+    char i;
+    size_t j;
+     //Fill the screen with spaces
     memset(SCREEN, ' ', 40*25);
-    memset(COLS, WHITE,40*25);
+    for(i=0;i<15;i++){
+    print_newline();
+    print_to_screen(MESSAGE);}
+    
+   
     char* sc = SCREEN+40; 
     char* msg = MESSAGE;
-while(*msg){
-        *sc++ = *msg++;
-        }
-        
+
+//change text color
+for(j=0;j<40*25;j++)    
+for(i=0;i<=155;i++)
+{ memset(COLS,i,j);
+ //Set the colour of every character on the screen to white
+}
+ 
 while(true) {
       if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
@@ -30,11 +43,21 @@ while(true) {
        }
  }
  
+ void print_newline(){
+   current_screen_line += 40;
+   current_screen_x = 0;}
+ 
+ void print_to_screen(char *message){
+ while(*message){
+   *(current_screen_line + current_screen_x) = *message++;
+   current_screen_x++;}
+ }
+ 
  void exit_hypervisor()
  {
  *(unsigned char*)$D67F = $01;
  }
-  
+ 
  void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
