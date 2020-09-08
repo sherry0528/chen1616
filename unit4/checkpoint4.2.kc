@@ -77,7 +77,7 @@ void print_to_screen(char *message){
     current_screen_line = $0400;
     current_screen_x=0;
     while(*msg){*sc++ = *msg++;}
-    
+    print_newline();
    start_simple_program();
 
 
