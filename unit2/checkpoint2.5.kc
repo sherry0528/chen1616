@@ -17,11 +17,12 @@ void main(){
     *VIC_MEMORY = 0x14;
     char i;
     size_t j;
+    char x;
      //Fill the screen with spaces
     memset(SCREEN, ' ', 40*25);
     
     //print more text
-    for(i=0;i<15;i++){
+    for(x=0;x<15;x++){
     print_newline();
     print_to_screen(MESSAGE);}
     
@@ -32,7 +33,7 @@ void main(){
 //change text color
 for(j=0;j<40*25;j++)    
 for(i=0;i<=155;i++)
-{ memset(COLS,i,j);}
+{memset(COLS,i,j);}
  //Set the colour of every character on the screen to white
 
  
