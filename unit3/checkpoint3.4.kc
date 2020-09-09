@@ -62,7 +62,8 @@ void main(){
 			
 			}	
 			
-	void print_hex(unsigned short value){
+
+void print_hex(unsigned short value){
 	
 	char[5] hex;
 	unsigned char i;
@@ -100,6 +101,22 @@ void main(){
 	print_hex((unsigned short)p);
 	}
 	
+	//declare time delay <1
+	void print_time(){
+	volatile unsigned dword i;
+	
+	for(i=0;i<2000000;i++){
+	
+	}
+	
+	
+	
+	}
+	
+	
+	
+	
+	
 	
   void detect_devices(){
   unsigned short add_start = $D000;
@@ -110,17 +127,14 @@ void main(){
   if( detect_vicii(i) == 1)    //if return 1 , this means the device has been found 
   add_end=i;
   }
-  print_to_screen("vic-ii detected  at $");
-  print_hex(add_start);
-  print_to_screen(" -$ ");
-	print_hex((unsigned short)i);
-	print_newline();
+ 
 	print_to_screen("finished probing for devices");}
 	
    unsigned short detect_vicii(unsigned short address){
    // Pointer where VIC-II is suspected to be
    volatile unsigned char *p;
 	 unsigned char v1,v2;
+	 word size = $7F;
 	
 	 unsigned short i;
 	 v1=p[$12];        //Read start address +12 
@@ -128,8 +142,14 @@ void main(){
 	 v2=p[$12];     //Read again
 	
 	 if(v2>v1){
-	 print_to_screen("Seems to be a VIC-II here");}
-	 return 1;}
+	print_to_screen("vic-ii detected  at $");
+  print_hex(address);
+  print_to_screen(" -- $ ");
+	print_hex(address+size);
+	print_newline();
+	 
+	 }
+	 return size;}
 	 
   void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
