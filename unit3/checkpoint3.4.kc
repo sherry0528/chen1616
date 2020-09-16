@@ -153,9 +153,9 @@ void print_hex(unsigned short value){
 	 
 	 
 	 unsigned short mos6526(unsigned short address){
-	 unsigned short t1=address+9;
-	 unsigned short t2=address+0A;
-	 unsigned short t3=address+0B;
+	 unsigned short t1=address+$09;
+	 unsigned short t2=address+$0A;
+	 unsigned short t3=address+$0B;
 	 
 	if(t3>0 && t3<24){
 	print_to_screen("mos6526 detected  at $");
