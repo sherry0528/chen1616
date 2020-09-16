@@ -141,7 +141,7 @@ void print_hex(unsigned short value){
 	 for(i=1;i<1000;i++) continue;
 	 v2=p[$12];     //Read again
 	
-	 if(v2>v1){
+	if(v2>v1){
 	print_to_screen("vic-ii detected  at $");
   print_hex(address);
   print_to_screen(" -- $ ");
@@ -150,6 +150,23 @@ void print_hex(unsigned short value){
 	 
 	 }
 	 return size;}
+	 
+	 
+	 unsigned short mos6526(unsigned short address){
+	 t1=address+9;
+	 t2=address+A;
+	 t3=address+B;
+	 
+	if(t3>0 && t3<24){
+	print_to_screen("mos6526 detected  at $");
+  print_hex(address);
+  print_to_screen(" -- $ ");
+	print_hex(address);
+	print_newline();
+	 }
+	 
+	 
+	 }
 	 
   void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
