@@ -106,7 +106,7 @@ mem_end = p;
 	
 void detect_devices(){
 
-for(unsigned short i= $D000; i< $DFF0 ; i=i+10){
+for(unsigned short i= $D000; i< $DFF0 ; i+=10){
 if( detect_vicii(i) == 1){
  print_to_screen("vic-ii detected  at $");
 	print_hex((unsigned short)i);
