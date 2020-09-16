@@ -136,11 +136,7 @@ void print_hex(unsigned short value){
   	//declare time delay <1
 	volatile unsigned short j;
 	
-	
-	
-	
-	
-  
+
   
  
 	print_to_screen("finished probing for devices");}
