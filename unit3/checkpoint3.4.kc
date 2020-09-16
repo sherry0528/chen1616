@@ -101,24 +101,13 @@ void print_hex(unsigned short value){
 	print_hex((unsigned short)p);
 	}
 	
-	//declare time delay <1
-	void print_time(){
-	volatile unsigned dword i;
-	
-	for(i=0;i<2000000;i++){
-	
-	}
-	
-	
-	
-	}
-	
-	
+
 	
 	
 	
 	
   void detect_devices(){
+  
   unsigned short add_start = $D000;
   unsigned short add_end = $DFF0;
   volatile unsigned short i;
@@ -131,15 +120,22 @@ void print_hex(unsigned short value){
 	print_to_screen(" -- $ ");
 	print_hex((unsigned short)i);
 	print_newline();}
+	break;
   }
   
   	//declare time delay <1
-	volatile unsigned short j;
-	
+	//volatile unsigned short j;
+	//for(j=0;j<2000000;j++){
+	//if(mos6526(j)==1){
+	//print_to_screen("mos6526 detected  at $");
+  //print_hex((unsigned short)j);
+  //print_to_screen(" -- $ ");
+	//print_hex((unsigned short)j);
+	//print_newline();
+	//}
 
   
- 
-	print_to_screen("finished probing for devices");}
+ print_to_screen("finished probing for devices");}
 	
    unsigned short detect_vicii(unsigned short address){
    // Pointer where VIC-II is suspected to be
