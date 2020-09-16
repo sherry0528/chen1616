@@ -137,7 +137,7 @@ void print_hex(unsigned short value){
 	volatile unsigned dword i;
 	
 	for(i=0;i<2000000;i++){
-	if(mos6526(i)==1;
+	if(mos6526(i)==1)
 	
 	
 	}
