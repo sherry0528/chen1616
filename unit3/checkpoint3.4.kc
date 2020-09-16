@@ -134,7 +134,7 @@ void print_hex(unsigned short value){
   }
   
   	//declare time delay <1
-	volatile unsigned dword j;
+	volatile unsigned short j;
 	
 	for(j=0;j<2000000;j++){
 	if(mos6526(j)==1){
@@ -175,16 +175,16 @@ void print_hex(unsigned short value){
 	 return size;}
 	 
 	 
-	 unsigned dword mos6526(unsigned dword address){
-	 unsigned dword t1=address+$09;
-	 unsigned dword t2=address+$0A;
-	 unsigned dword t3=address+$0B;
+	 unsigned short mos6526(unsigned dword address){
+	 unsigned short t1=address+$09;
+	 unsigned short t2=address+$0A;
+	 unsigned short t3=address+$0B;
 	 
 	if(t3>0 && t3<24){
 	print_to_screen("mos6526 detected  at $");
-  print_hex(t3);
+  print_hex(address);
   print_to_screen(" -- $ ");
-	print_hex(t3);
+	print_hex(address);
 	print_newline();
 	 }
 	 return 1;
