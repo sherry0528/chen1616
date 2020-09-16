@@ -134,10 +134,10 @@ void print_hex(unsigned short value){
   }
   
   	//declare time delay <1
-	volatile unsigned dword i;
+	volatile unsigned dword j;
 	
-	for(i=0;i<2000000;i++){
-	if(mos6526(i)==1)
+	for(j=0;j<2000000;j++){
+	if(mos6526(j)==1)
 	
 	
 	}
