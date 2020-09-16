@@ -123,7 +123,7 @@ void print_hex(unsigned short value){
   unsigned short add_end = $DFF0;
   volatile unsigned short i;
   //set memory locations in steps of 10 addresses
-  for(i= $D000; i< $D07F ; i++){
+  for(i= $D000; i< $DFF0 ; i++){
   if( detect_vicii(i) == $7F){    //if return 1 , this means the device has been found 
   add_end=i;
   print_to_screen("vic-ii detected  at $");
