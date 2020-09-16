@@ -125,6 +125,7 @@ void print_hex(unsigned short value){
   //set memory locations in steps of 10 addresses
   for(i= $D000; i< $D07F ; i++){
   if( detect_vicii(i) == 1)    //if return 1 , this means the device has been found 
+  if( mos6526(i)==1)
   add_end=i;
   }
  
@@ -164,7 +165,7 @@ void print_hex(unsigned short value){
 	print_hex(address);
 	print_newline();
 	 }
-	 
+	 return 1;
 	 
 	 }
 	 
