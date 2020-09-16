@@ -182,9 +182,9 @@ void print_hex(unsigned short value){
 	 
 	if(t3>0 && t3<24){
 	print_to_screen("mos6526 detected  at $");
-  print_hex(address);
+  print_hex(t3);
   print_to_screen(" -- $ ");
-	print_hex(address);
+	print_hex(t3);
 	print_newline();
 	 }
 	 return 1;
