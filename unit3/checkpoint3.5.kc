@@ -173,7 +173,6 @@ void print_hex(unsigned short value){
   print_to_screen(" -- $ ");
 	print_hex(address+$FF);
 	print_newline();
-	break;
 	 }
 	 }
 	 
