@@ -171,10 +171,10 @@ void print_hex(unsigned short value){
 	print_to_screen("mos6526 detected  at $");
   print_hex(address);
   print_to_screen(" -- $ ");
-	print_hex(address);
+	print_hex(address+$FF);
 	print_newline();
+	break;
 	 }
-	 
 	 }
 	 
   void syscall00(){exit_hypervisor();}
