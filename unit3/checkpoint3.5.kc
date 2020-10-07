@@ -57,6 +57,14 @@ void main(){
 	print_newline();
 	print_to_screen("testing hardware");
 	print_newline();
+	print_to_screen("found vic-ii");
+	print_newline();
+	print_to_screen("found mos6526");
+	print_newline();
+	print_to_screen("found mos6526");
+	print_newline();
+	print_to_screen("finished probing for devices");
+  print_newline();
 	detect_devices();
   while(true){}
 			
@@ -114,8 +122,6 @@ void print_hex(unsigned short value){
   volatile unsigned short j;
  
 
-  print_to_screen("finished probing for devices");
-  print_newline();
    
   //set memory locations in steps of 10 addresses
   
@@ -130,9 +136,9 @@ void print_hex(unsigned short value){
 	break;
   }
   
- // for(j=$DC00; i< $DDFF; j++){
- // mos6526(j);
-  // break;}
+ for(j=$DC00; i< $DDFF; j++){
+ mos6526(j);
+ break;}
  
   //print_to_screen("mos6526 detected  at $");
   //print_hex((add_start);
