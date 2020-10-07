@@ -114,7 +114,8 @@ void print_hex(unsigned short value){
   volatile unsigned short j;
  
 
-  // print_to_screen("finished probing for devices");
+  print_to_screen("finished probing for devices");
+  print_newline();
    
   //set memory locations in steps of 10 addresses
   
