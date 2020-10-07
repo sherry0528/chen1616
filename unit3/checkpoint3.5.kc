@@ -139,7 +139,7 @@ void print_hex(unsigned short value){
  for(j=$DC00; i< $DDFF; j++){
  if(mos6526(j)== 1)
     print_to_screen("mos6526 detected  at $");
-    print_hex((add_start);
+    print_hex(j);
     print_to_screen(" -- $ ");
 	  print_hex(add_start +$CFF);
 	  print_newline();
