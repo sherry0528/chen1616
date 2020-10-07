@@ -136,14 +136,25 @@ void print_hex(unsigned short value){
 	break;
   }
   
- for(j=$DC00; i< $DDFF; j++){
- if(mos6526(j)== 1){
-    print_to_screen("mos6526 detected  at $");
-    print_hex(add_start +$C00);
-    print_to_screen(" -- $ ");
-	  print_hex(add_start +$CFF);
-	  print_newline();}
-	 break;}
+for(j=$DC00; i< $DDFF; j++){
+  if(mos6526(j)==1){
+  print_to_screen("mos6526 detected  at $");
+  print_hex((add_start+ $C00));
+  print_to_screen(" -- $ ");
+	print_hex(add_start +$CFF);
+	print_newline();
+	break;}
+  }
+  
+  for(j=$DD00; i< $DDFF; j++){
+  if(mos6526(j)==1){
+  print_to_screen("mos6526 detected  at $");
+  print_hex((add_start+ $D00));
+  print_to_screen(" -- $ ");
+	print_hex(add_start +$DFF);
+	print_newline();
+	break;}
+  }
 }
 	
   unsigned short detect_vicii(unsigned short address){
@@ -168,7 +179,7 @@ void print_hex(unsigned short value){
 	 return size;}
 	 
 	 
-	void mos6526(unsigned short address){
+	unsigned short mos6526(unsigned short address){
 	 unsigned short t1=address+$09;
 	 unsigned short t2=address+$0A;
 	 unsigned short t3=address+$0B;
@@ -180,6 +191,7 @@ void print_hex(unsigned short value){
 	print_hex(address+$FF);
 	print_newline();
 	 }
+	 return 1;
 	 }
 	 
   void syscall00(){exit_hypervisor();}
