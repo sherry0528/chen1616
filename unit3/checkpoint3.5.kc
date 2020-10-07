@@ -128,7 +128,7 @@ void print_hex(unsigned short value){
   }
   
   for(j=$DC00; i< $DDFF; j++){
-  mos6526(j)
+  mos6526(j);
    break;}
  
   //print_to_screen("mos6526 detected  at $");
