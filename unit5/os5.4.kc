@@ -523,6 +523,9 @@ void reset(){
     //describe_pdb(1);
     load_program(1);
     //resume_pdb(1);
+    syscall06();
+    syscall05();
+    
     
     while(true){ if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
@@ -541,7 +544,7 @@ XXX - Don't forget to call resume_pdb(0) immediately after load_program(0)
 XXX - Copy your trap handler functions and entry point tables from os5.2.kc
 */
 
-void syscall00(){exit_hypervisor();}
+ void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
 	void syscall03(){ //describe_pdb(running_pdb);
