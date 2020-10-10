@@ -517,13 +517,12 @@ void reset(){
     //describe_pdb(0);
     load_program(0);
     resume_pdb(0);
-    pause_pdb(0);
+    
    //Load program 2 into PDB #1
     initialise_pdb(1,"program2.prg");
     //describe_pdb(1);
     load_program(1);
     resume_pdb(1);
-    pause_pdb(1);
     
     while(true){ if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
@@ -549,6 +548,7 @@ void syscall00(){exit_hypervisor();}
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
+	pause_pdb(0);
 	exit_hypervisor();}
 	void syscall06(){ 
 	//Display PID of current process
