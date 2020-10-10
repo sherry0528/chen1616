@@ -516,17 +516,14 @@ void reset(){
     initialise_pdb(0,"program2.prg");
     //describe_pdb(0);
     load_program(0);
-    //resume_pdb(0);
+    resume_pdb(0);
     
    //Load program 2 into PDB #1
     initialise_pdb(1,"program2.prg");
     //describe_pdb(1);
     load_program(1);
-    //resume_pdb(1);
-    syscall06();
-    syscall05();
-    
-    
+    resume_pdb(1);
+   
     while(true){ if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
           }else{
@@ -547,7 +544,7 @@ XXX - Copy your trap handler functions and entry point tables from os5.2.kc
  void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
-	void syscall03(){ //describe_pdb(running_pdb);
+	void syscall03(){ describe_pdb(running_pdb);
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
