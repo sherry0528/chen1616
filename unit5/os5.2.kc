@@ -215,11 +215,11 @@ void initialise_pdb(unsigned char pdb_number,char *name)
    
   //XXX - Set all 64 bytes of the array 'ss' to zero, to clear the context
   //switching state
-  for(i=0;i<63;i++) *(unsigned short *)&ss[i] = $80D
-
+  for(i=0;i<63;i++) *(unsigned short *)&ss[i] = $01FF;
+ //ss[i]=$00;
   // Set tandard CPU flags (8-bit stack, interrupts disabled)
-  ss[7] = $24;
-  
+  //ss[7] = $24;
+  *(unsigned short *)&ss[D] = $080D;
 
  /* XXX - Set the stack pointer to $01FF
   (This requires a bit of fiddly pointer arithmetic, so to save you 
