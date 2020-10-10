@@ -50,7 +50,6 @@ void main(){
 *(unsigned char *)$D702=$00;
 *(unsigned char *)$D705=$00;
 *(unsigned short *)$D648 =$080D;
-*(unsigned char *)$0320=$00;
 exit_hypervisor();
 }
 
