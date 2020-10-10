@@ -51,9 +51,6 @@ struct process_descriptor_block {
   // process (for the $D640-$D67E machine state registers)
   unsigned char* stored_state;
   
-  //CALL load_program()
-  
-  load_program(unsigned char pdb_number);
 };
 
 // Process stored state will live at $C000-$C7FF, with 256 bytes
