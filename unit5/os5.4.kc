@@ -516,13 +516,12 @@ void reset(){
     initialise_pdb(0,"program2.prg");
     //describe_pdb(0);
     load_program(0);
-    resume_pdb(0);
-    syscall06();
+
    //Load program 2 into PDB #1
     initialise_pdb(1,"program2.prg");
     //describe_pdb(1);
     load_program(1);
-    resume_pdb(1);
+    //resume_pdb(1);
     syscall06();
    
     while(true){ if(*RASTER==54 || *RASTER==66){
