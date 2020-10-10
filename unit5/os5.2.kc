@@ -207,6 +207,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
 
   // Initialise processor state for standard entry at $080D
   // Everything to zero, except for a few things we will set manually
+  p->process_state = $080D;
 
   // 64 bytes context switching state for each process
   p->stored_state=process_context_states+(((unsigned short)pdb_number)<<6);
@@ -218,6 +219,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
 
   // Set tandard CPU flags (8-bit stack, interrupts disabled)
   ss[7] = $24;
+  
 
  /* XXX - Set the stack pointer to $01FF
   (This requires a bit of fiddly pointer arithmetic, so to save you 
