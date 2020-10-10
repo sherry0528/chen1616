@@ -299,7 +299,7 @@ void pause_pdb(unsigned char next_pdb)
    pdb->process_state = STATE_READY; 
   // Mark this PDB as the running process
   //XXX - Set running_pdb to the PDB number we are resuming
-  running_pdb = pdb_number;
+  running_pdb = next_pdb;
 
   // Exit hypervisor and cause CPU register values (including PC) to be restored from
   // those loaded from p->stored_state
