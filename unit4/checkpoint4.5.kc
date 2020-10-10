@@ -100,6 +100,7 @@ void print_to_screen(char *message){
   exit_hypervisor();}
   
 	void syscall03(){
+	
 	 print_newline();
   print_to_screen("os version: froschos 1.00");
 	exit_hypervisor();}
