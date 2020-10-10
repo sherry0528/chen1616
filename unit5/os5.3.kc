@@ -170,7 +170,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
 
   // Set process state as not running.
   //XXX - Put the value STATE_NOTRUNNING into p->process_state
-    p->process_state = STATE_NOTRUNNING;
+   // p->process_state = STATE_NOTRUNNING;
 
   // Set stored memory area
   // (for now, we just use fixed 8KB steps from $30000-$3FFFF
