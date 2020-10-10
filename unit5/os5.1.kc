@@ -166,7 +166,9 @@ void describe_pdb(unsigned char pdb_number)
     describe_pdb(0);
      while(true){}
 			}	
-
+ void exit_hypervisor() {
+ *(unsigned char*)$D67F = $01;
+ }
   void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
