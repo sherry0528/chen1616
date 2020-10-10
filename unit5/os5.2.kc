@@ -219,7 +219,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
   // Set tandard CPU flags (8-bit stack, interrupts disabled)
   ss[7] = $24;
 
-  XXX - Set the stack pointer to $01FF
+ */ XXX - Set the stack pointer to $01FF
   (This requires a bit of fiddly pointer arithmetic, so to save you 
   the trouble working it out, you can use the following as the left 
   side of the expression:   *(unsigned short *)&ss[x] = ...
@@ -237,7 +237,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
   where x is the offset of the program counter low byte (PCL) in the
   Hypervisor saved state registers in Appendix D of the MEGA65 User's
   Guide.
-
+*/
 
   return;
 }
