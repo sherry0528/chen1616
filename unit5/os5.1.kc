@@ -158,7 +158,7 @@ void reset(){
      while(true){}
 			}	
 
-void syscall00(){exit_hypervisor();}
+  void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
 	void syscall03(){exit_hypervisor();}
