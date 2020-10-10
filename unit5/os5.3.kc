@@ -473,7 +473,7 @@ void reset(){
     print_newline();
     print_newline();
 
-    initialise_pdb(0,"program1.prg");
+    initialise_pdb(0,"pr9gram1.prg");
     describe_pdb(0);
     load_program(0);
     resume_pdb(0);
