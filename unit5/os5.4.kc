@@ -525,8 +525,6 @@ void reset(){
     //resume_pdb(1);
     syscall06();
     syscall05();
-    syscall06();
-    syscall05();
     
     
     while(true){ if(*RASTER==54 || *RASTER==66){
