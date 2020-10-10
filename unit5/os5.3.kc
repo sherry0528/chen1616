@@ -53,7 +53,7 @@ struct process_descriptor_block {
   
   //CALL load_program()
   
-  load_program();
+  load_program(unsigned char pdb_number);
 };
 
 // Process stored state will live at $C000-$C7FF, with 256 bytes
