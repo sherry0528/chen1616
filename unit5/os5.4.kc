@@ -514,13 +514,13 @@ void reset(){
     print_newline();
   //Load program 2 into PDB #0
     initialise_pdb(0,"program2.prg");
-    describe_pdb(0);
+    //describe_pdb(0);
     load_program(0);
     //resume_pdb(0);
     
    //Load program 2 into PDB #1
     initialise_pdb(1,"program2.prg");
-    describe_pdb(1);
+    //describe_pdb(1);
     load_program(1);
     //resume_pdb(1);
     
@@ -544,10 +544,11 @@ XXX - Copy your trap handler functions and entry point tables from os5.2.kc
 void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
-	void syscall03(){ describe_pdb(running_pdb);
+	void syscall03(){ //describe_pdb(running_pdb);
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
+	pause_pdb(running_pdb;)
 	exit_hypervisor();}
 	void syscall06(){ 
 	//Display PID of current process
