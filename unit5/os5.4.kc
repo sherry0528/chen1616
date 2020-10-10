@@ -267,7 +267,7 @@ void resume_pdb(unsigned char pdb_number)
   exit_hypervisor();
 }
 
-void pause_pdb(unsigned char pdb_number)
+void pause_pdb(unsigned char next_pdb)
 {
   struct process_descriptor_block *pdb
     =(struct process_descriptor_block *)(((unsigned short)stored_pdbs)+(((unsigned short)next_pdb)<<8));
