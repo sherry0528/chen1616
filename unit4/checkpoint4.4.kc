@@ -96,7 +96,7 @@ void print_to_screen(char *message){
   
   void syscall02(){
   print_newline();
-   print_to_screen(char *$300);
+  print_to_screen( $300);
   exit_hypervisor();}
   
 	void syscall03(){exit_hypervisor();}
