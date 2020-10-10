@@ -548,7 +548,6 @@ void syscall00(){exit_hypervisor();}
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
-	pause_pdb(0);
 	exit_hypervisor();}
 	void syscall06(){ 
 	//Display PID of current process
