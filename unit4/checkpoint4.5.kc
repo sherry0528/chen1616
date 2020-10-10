@@ -96,7 +96,6 @@ void print_to_screen(char *message){
   
   void syscall02(){
   print_newline();
-  print_to_screen("printed via printstring api");
   exit_hypervisor();}
   
 	void syscall03(){
