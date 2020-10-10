@@ -173,7 +173,8 @@ void initialise_pdb(unsigned char pdb_number,char *name)
   // Setup process ID
   //XXX - Call the function next_free_pid() to get a process ID for the
   //process in this PDB, and store it in p->process_id
-   p->process_id = 'A';
+   p->process_id = ' 1';
+   next_free_pid();
 
   // Setup process name 
   // (32 bytes space for each to fit 16 chars + nul)
