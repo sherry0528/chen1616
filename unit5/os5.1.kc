@@ -23,6 +23,16 @@ char[] MESSAGE = "checkpoint 5.1";
 const unsigned char STATE_NOTRUNNING = $00;
 const unsigned char STATE_RUNNING = $01;
 
+ void print_raster_lines(){
+ while(true) {
+      if(*RASTER==54 || *RASTER==66){
+           *BGCOL = WHITE;
+          }else{
+             *BGCOL = BLUE;
+          }
+       }
+ }
+
 // Process Descriptor Block definition
 struct process_descriptor_block {
   // Unique identifier for the process
@@ -32,7 +42,7 @@ struct process_descriptor_block {
   unsigned char process_state;
 
   // Human readable name of the process
-  char* process_name;
+  unsigned char* process_name;
   
   // Where this process is stored when not running
   // i.e., where in the $20000-$5FFFF memory range the
