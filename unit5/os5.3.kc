@@ -242,9 +242,9 @@ void resume_pdb(unsigned char pdb_number)
         (Use (unsigned dword)(p->storage_start_address)+offset to pass these
          addresses in calls to dma_copy() to cast them to the correct type.) 
          void dma_copy(unsigned long src,unsigned long dest,unsigned short length) */
- 
-  dma_copy((unsigned dword)(p->storage_start_address),$0800,$0400);
-  dma_copy((unsigned dword)(p->storage_start_address)+$0800, $800,$1800);
+ (unsigned dword)(p->storage_start_address)=$0000;
+  dma_copy((unsigned dword)(p->storage_start_address),$03FF,$0400);
+  dma_copy((unsigned dword)(p->storage_start_address)+$0800, $1FFF,$1800);
 
   // Load stored CPU state into Hypervisor saved register area at $FFD3640
   unsigned char *ss=p->stored_state;
