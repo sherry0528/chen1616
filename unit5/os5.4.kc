@@ -513,24 +513,9 @@ void reset(){
     print_newline();
     print_newline();
     
-    for( char i =0; i<4;i++){
-    for (char j=0; j<2 ;j++){
-    initialise_pdb(j,"program2.prg");
-   struct process_descriptor_block *pdb
-	  =(struct process_descriptor_block*)
-	    ((unsigned short) stored_pdbs+(((unsigned short)running_pdb)<<8));
-	 
-	 print_to_screen("you are pid ");
-	 print_hex(pdb->process_id);
-	 print_to_screen(" in pdb ");
-	 print_hex(running_pdb);
-	 print_newline();
-	 
-    }
+   
     
-    }
     
-    /*
   //Load program 2 into PDB #0
     initialise_pdb(0,"program2.prg");
     //describe_pdb(0);
@@ -543,7 +528,7 @@ void reset(){
     //resume_pdb(1);
     syscall06();
     syscall05();
-    */
+    
    
     while(true){ if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
