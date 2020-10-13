@@ -514,7 +514,7 @@ void reset(){
     print_newline();
     
     for( char i =0; i<4;i++){
-    for (char j=0; j<2 j++){
+    for (char j=0; j<2 ;j++){
     initialise_pdb(j,"program2.prg");
     syscall06();
     }
