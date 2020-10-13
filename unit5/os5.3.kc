@@ -244,7 +244,7 @@ void resume_pdb(unsigned char pdb_number)
          void dma_copy(unsigned long src,unsigned long dest,unsigned short length) */
   dma_copy((unsigned dword)(p->storage_start_address),(unsigned dword)(p->storage_end_address),$0000);
   dma_copy((unsigned dword)(p->storage_start_address),$0000,$0400);
-  dma_copy((unsigned dword)(p->storage_start_address)+$0800, $1000,$1800);
+  dma_copy((unsigned dword)(p->storage_start_address)+$0800, $1800,$1800);
 
   // Load stored CPU state into Hypervisor saved register area at $FFD3640
   unsigned char *ss=p->stored_state;
