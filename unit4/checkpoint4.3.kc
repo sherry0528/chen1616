@@ -27,7 +27,7 @@ void main(){
  }
 }
  
-  void start_simple_program(){
+ void start_simple_program(){
 
 *(unsigned char *)$0300=$80;
 *(unsigned char *)$0301=$00;
