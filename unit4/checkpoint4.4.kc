@@ -97,7 +97,7 @@ void print_to_screen(char *message){
   
   void syscall02(){
   print_newline();
-   print_to_screen($300);
+   print_to_screen(&str_mem);
   
   //print_to_screen("printed via printstring api");
   exit_hypervisor();}
