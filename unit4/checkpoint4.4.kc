@@ -78,7 +78,7 @@ void print_to_screen(char *message){
     current_screen_x=0;
     while(*msg){*sc++ = *msg++;}
     print_newline();
-   start_simple_program();
+   //start_simple_program();
 
 
 		while(true){}
@@ -96,7 +96,9 @@ void print_to_screen(char *message){
   
   void syscall02(){
   print_newline();
-  print_to_screen("printed via printstring api");
+  unsigned char *address = $0300;
+  
+  //print_to_screen("printed via printstring api");
   exit_hypervisor();}
   
 	void syscall03(){exit_hypervisor();}
