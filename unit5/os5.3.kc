@@ -478,7 +478,9 @@ void reset(){
     print_newline();
     print_newline();
 
-   
+    initialise_pdb(0,"program1.prg");
+    load_program(0);
+    resume_pdb(0);
     
     while(true){ if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
@@ -501,9 +503,7 @@ void syscall00(){exit_hypervisor();}
   void syscall01(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
 	void syscall03(){ 
-	 initialise_pdb(0,"program1.prg");
-    load_program(0);
-    resume_pdb(0);
+	
 	describe_pdb(running_pdb);
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
