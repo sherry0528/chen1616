@@ -475,7 +475,7 @@ unsigned char load_program(unsigned char pdb_number)
         if (ipc_message_count>15) return;
         
         struct ipc_message *m=(struct ipc_message *)
-          (ipc_messages+ipc_message_count*16);
+          (ipc_message+ipc_message_count*16);
           
          
          m->from=from; m->to=to; m->priority=priority;
@@ -491,9 +491,9 @@ unsigned char load_program(unsigned char pdb_number)
            ipc_message_count--; return;
            }
            unsigned char *dest=(unsigned char *)
-               ((unsigned short) ipc_messages+message_num*16);
+               ((unsigned short) ipc_message+message_num*16);
            unsigned char *src=(unsigned char *)
-               ((unsigned short)ipc_messages+(ipc_message_count-1)*16);
+               ((unsigned short)ipc_message+(ipc_message_count-1)*16);
          for(unsigned char i=0;i<16;i++) dest[i]=src[i];
          ipc_message_count--;
          
@@ -518,7 +518,7 @@ unsigned char load_program(unsigned char pdb_number)
        struct ipc_message *get_pointer_to_message(unsigned char id)
        {
        return (struct ipc_message *)
-            (ipc_messages+id*16);
+            (ipc_message+id*16);
         }                      
 
 void main() {
