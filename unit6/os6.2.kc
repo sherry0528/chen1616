@@ -613,7 +613,24 @@ void syscall00(){exit_hypervisor();}
 }
 
 	void syscall0A(){
-	queue_message($0300);
+	queue_message();
+	unsigned char caller_pid=pdb->process_id;
+	unsigned char message_id=get_next_message_id(caller_pid);
+	if (message_id!=0xFF) {
+	// We have a message to return
+	struct ipc_message*m=get_pointer_to_message(message_id);
+	// Copy it to the transfer area
+	dma_copy((unsigned short)m,$0300,16);
+	// De-queue the message
+	dequeue_message(message_id);
+	// Return from operating system back into the calling
+	// program.
+	exit_hypervisor();
+	} else {
+	// We have no message to return
+	// So set message to all $FFs
+	for(unsigned char i=0;i<16;i++)
+	*(unsigned char *)($0300+i)=0xff;
 	exit_hypervisor();}
 	void syscall11(){exit_hypervisor();}
 	void syscall12(){exit_hypervisor();}
