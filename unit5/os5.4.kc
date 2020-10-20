@@ -161,8 +161,8 @@ void initialise_pdb(unsigned char pdb_number,char *name)
   // Setup process name 
   // (32 bytes space for each to fit 16 chars + nul)
   // (we could just use 17 bytes, but kickc can't multiply by 17)
-  //p->process_name=process_names+(((short)i)<<5);
-  //p->process_name = name +(((short)i)<<5);
+  p->process_name=process_names+(((short)i)<<5);
+
   //XXX - copy the string in the array 'name' into the array 'p->process_name'
   //XXX - To make your life easier, do something like char *pn=p->process_name
     //    Then you can just do something along the lines of pn[...]=name[...] 
@@ -291,7 +291,7 @@ void pause_pdb(unsigned char pdb_number)
   /*XXX - Use a for() loop to copy 63 bytes from ss[0]--ss[62] to ((unsigned char *)$D640)[0]
         -- ((unsigned char *)$D640)[62] (dma_copy doesn't work for this for some slightly
         complex reasons.) */
-  for(unsigned char i; i<447;i++)
+  for(unsigned char i; i<63;i++)
   ((unsigned char *)$D640)[i] =ss[i];
   
 
@@ -300,7 +300,7 @@ void pause_pdb(unsigned char pdb_number)
    p->process_state = STATE_READY; 
   // Mark this PDB as the running process
   //XXX - Set running_pdb to the PDB number we are resuming
-  running_pdb = pdb_number;
+  running_pdb = 0;
 
   // Exit hypervisor and cause CPU register values (including PC) to be restored from
   // those loaded from p->stored_state
@@ -553,6 +553,7 @@ XXX - Copy your trap handler functions and entry point tables from os5.2.kc
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
 	pause_pdb(running_pdb);
+	resume_pdb(running_pdb);
 	exit_hypervisor();}
 	void syscall06(){ 
 	//Display PID of current process
