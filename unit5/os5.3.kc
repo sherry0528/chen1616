@@ -169,7 +169,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
     //    in a loop to copy the name into place.
     //    (The arrays are both 17 bytes long)
     char *pn=p->process_name;
-    for(i=0;i<17;i++) pn[i]=name;
+    for(i=0;i<17;i++) pn[i]=name[i];
 
   // Set process state as not running.
   //XXX - Put the value STATE_NOTRUNNING into p->process_state
