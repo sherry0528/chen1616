@@ -248,7 +248,7 @@ void resume_pdb(unsigned char pdb_number)
 
   // Load stored CPU state into Hypervisor saved register area at $FFD3640
   unsigned char *ss=p->stored_state;
-
+  p->stored_state=$FFD3640;
   /*XXX - Use a for() loop to copy 63 bytes from ss[0]--ss[62] to ((unsigned char *)$D640)[0]
         -- ((unsigned char *)$D640)[62] (dma_copy doesn't work for this for some slightly
         complex reasons.) */
@@ -287,7 +287,7 @@ void pause_pdb(unsigned char pdb_number)
 
   // Load stored CPU state into Hypervisor saved register area at $FFD3640
   unsigned char *ss=p->stored_state;
-
+  p->stored_state=$FFD3640;
   /*XXX - Use a for() loop to copy 63 bytes from ss[0]--ss[62] to ((unsigned char *)$D640)[0]
         -- ((unsigned char *)$D640)[62] (dma_copy doesn't work for this for some slightly
         complex reasons.) */
