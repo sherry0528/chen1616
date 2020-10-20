@@ -609,7 +609,7 @@ void syscall00(){exit_hypervisor();}
 	//We have no message to return
 	//So set message to all $FFs
 	for(unsigned char i=0;i<16;i++)
-	    *(unsgined char *)($0300+i)=0xff;
+	    *(unsigned char *)($0300+i)=0xff;
 	  exit_hypervisor();
 	  }
 	}
