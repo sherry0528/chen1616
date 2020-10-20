@@ -453,6 +453,51 @@ unsigned char load_program(unsigned char pdb_number)
   // Failed to find program
   return 1;
 }
+
+void main() {
+
+}
+
+void exit_hypervisor()
+{
+	// Exit hypervisor
+	*(char *)$D67F = $01;
+}
+
+void reset(){
+    *VIC_MEMORY = 0x14;
+    memset(SCREEN, ' ', 40*25);
+    memset(COLS, WHITE,40*25);
+    char* sc = SCREEN+40;
+    char* msg = MESSAGE;
+    
+    while(*msg){
+    *sc++ = *msg++;
+    }
+    current_screen_line = SCREEN;
+    print_newline();
+    print_newline();
+    print_newline();
+
+   //Start with empty message queue
+    ipc_message_count=0;
+    // Create message from PID 0(OS) to PID 1
+    queue_message(0,1,1,1,"cpoint 6.1   ");
+    //Initialise PDB slot 0 to hold program1
+    initialise_pdb(0,"program1.prg");
+    
+    //Load the program
+    load_program(0);
+    //Run the program
+    resume_pdb(0);
+    
+    while(true){ if(*RASTER==54 || *RASTER==66){
+           *BGCOL = WHITE;
+          }else{
+            *BGCOL = BLACK;}
+			}	
+			}
+			
 //Message structure:16 bytes intotal
  struct ipc_message {
      unsigned char from;
@@ -521,50 +566,7 @@ unsigned char load_program(unsigned char pdb_number)
        return (struct ipc_message *)
             (ipc_messages+id*16);
         } 
-
-void main() {
-
-}
-
-void exit_hypervisor()
-{
-	// Exit hypervisor
-	*(char *)$D67F = $01;
-}
-
-void reset(){
-    *VIC_MEMORY = 0x14;
-    memset(SCREEN, ' ', 40*25);
-    memset(COLS, WHITE,40*25);
-    char* sc = SCREEN+40;
-    char* msg = MESSAGE;
-    
-    while(*msg){
-    *sc++ = *msg++;
-    }
-    current_screen_line = SCREEN;
-    print_newline();
-    print_newline();
-    print_newline();
-
-   //Start with empty message queue
-    ipc_message_count=0;
-    // Create message from PID 0(OS) to PID 1
-    queue_message(0,1,1,1,"cpoint 6.1   ");
-    //Initialise PDB slot 0 to hold program1
-    initialise_pdb(0,"program1.prg");
-    
-    //Load the program
-    load_program(0);
-    //Run the program
-    resume_pdb(0);
-    
-    while(true){ if(*RASTER==54 || *RASTER==66){
-           *BGCOL = WHITE;
-          }else{
-            *BGCOL = BLACK;}
-			}	
-			}
+			
 
 /*
 XXX -  Copy your syscall handler functions from os5.2.kc
@@ -589,29 +591,29 @@ void syscall00(){exit_hypervisor();}
 	void syscall07(){exit_hypervisor();}
 	void syscall08(){exit_hypervisor();}
 	void syscall09(){
-	struct process_descriptor_block *pdb 
-	=(struct process_descriptor_block*)((unsigned short)stored_pdbs+
-	(((unsigned short)running_pdb)<<8));
-	  unsigned char caller_pid=pdb->process_id;
-	  
-	  unsigned char message_id =get_next_message_id(caller_pid);
-	  
-	  if (message_id!=0xFF){
-	  //We have a message to return
-	  struct ipc_message*m=get_pointer_to_message(message_id);
-	  //Copy it to the transfer area
-	  dma_copy((unsigned char)m,$0300,16);
-	  //DE-QUEUE THE MESSAGE
-	  DEQUEUE_MESSAGE(MESSAGE_ID);
-	  //Return from operating system back into the calling
-	  //program.
+	struct process_descriptor_block *pdb
+	=(struct process_descriptor_block*)
+	((unsigned short)stored_pdbs+(((unsigned
+	short)running_pdb)<<8));
+	unsigned char caller_pid=pdb->process_id;
+	unsigned char message_id=get_next_message_id(caller_pid);
+	if (message_id!=0xFF) {
+	// We have a message to return
+	struct ipc_message*m=get_pointer_to_message(message_id);
+	// Copy it to the transfer area
+	dma_copy((unsigned short)m,$0300,16);
+	// De-queue the message
+	dequeue_message(message_id);
+	// Return from operating system back into the calling
+	// program.
 	exit_hypervisor();
-	}else{
-	//We have no message to return
-	//So set message to all $FFs
+	} else {
+	// We have no message to return
+	// So set message to all $FFs
 	for(unsigned char i=0;i<16;i++)
-	    *(unsigned char *)($0300+i)=0xff;
-	exit_hypervisor();}
+	*(unsigned char *)($0300+i)=0xff;
+	exit_hypervisor();
+}
 	}
 	void syscall10(){exit_hypervisor();}
 	void syscall11(){exit_hypervisor();}
