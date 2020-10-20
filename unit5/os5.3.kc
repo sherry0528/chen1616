@@ -20,6 +20,7 @@ const char WHITE = 1;
 
 char[] MESSAGE = "checkpoint 5.3 chen1616";
 
+const unsigned char STATE_NOTRUNNING = $00;
 const unsigned char STATE_NEW = $01;
 const unsigned char STATE_READY = $02;
 const unsigned char STATE_READYSUSPENDED = $03;
@@ -172,7 +173,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
 
   // Set process state as not running.
   //XXX - Put the value STATE_NOTRUNNING into p->process_state
-    p->process_state = STATE_RUNNING;
+    p->process_state = STATE_NOTRUNNING;
 
   // Set stored memory area
   // (for now, we just use fixed 8KB steps from $30000-$3FFFF
@@ -255,7 +256,7 @@ void resume_pdb(unsigned char pdb_number)
         -- ((unsigned char *)$D640)[62] (dma_copy doesn't work for this for some slightly
         complex reasons.) */
   for(unsigned char i=0; i<63;i++){
-  ss[i]= ((unsigned char *)$D640)[i];}
+  ((unsigned char *)$D640)[i]=ss[i] ;}
   
 
   // Set state of process to running
@@ -481,7 +482,6 @@ void reset(){
     initialise_pdb(0,"program1.prg");
     load_program(0);
     resume_pdb(0);
-    describe_pdb(0);
     
     while(true){ if(*RASTER==54 || *RASTER==66){
            *BGCOL = WHITE;
