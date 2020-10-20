@@ -531,7 +531,7 @@ void syscall00(){exit_hypervisor();}
 	  
 	  if (message_id!=0xFF){
 	  //We have a message to return
-	  struct ipc_message*m=get_pointer_to_message(message_id);
+	  struct ipc_message *m=get_pointer_to_message(message_id);
 	  //Copy it to the transfer area
 	  dma_copy((unsigned char)m,$0300,16);
 	  //DE-QUEUE THE MESSAGE
