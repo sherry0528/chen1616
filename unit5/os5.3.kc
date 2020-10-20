@@ -505,7 +505,7 @@ void syscall00(){exit_hypervisor();}
   void syscall02(){exit_hypervisor();}
 	void syscall03(){ 
 	
-	describe_pdb(running_pdb);
+	describe_pdb(0);
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){exit_hypervisor();}
