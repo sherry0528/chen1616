@@ -569,7 +569,7 @@ void syscall00(){exit_hypervisor();}
 	   =(struct process_descriptor_block*)
 	   ((unsigned short)stored_pdbs+(((unsigned short)running_pdb)<<8));
 	   
-	   print_to_screen("you are pid ";
+	   print_to_screen("you are pid ");
 	   print_hex(pdb->process_id);
 	   print_to_screen(" in pdb ");
 	   print_hex(running_pdb);
