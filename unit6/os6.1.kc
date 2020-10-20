@@ -18,6 +18,8 @@ const char BLACK = 0;
 const char BLUE = 6;
 const char WHITE = 1;
 
+char[] MESSAGE = "";
+
 const unsigned char STATE_NOTRUNNING = $00;
 const unsigned char STATE_NEW = $01;
 const unsigned char STATE_READY = $02;
@@ -467,10 +469,10 @@ void reset(){
     memset(SCREEN, ' ', 40*25);
     memset(COLS, WHITE,40*25);
     char* sc = SCREEN+40;
-    //char* msg = MESSAGE;
+    char* msg = MESSAGE;
     
-    //while(*msg){
-    //*sc++ = *msg++;}
+    while(*msg){
+    *sc++ = *msg++;}
     current_screen_line = SCREEN;
     print_newline();
     print_newline();
