@@ -527,6 +527,7 @@ void reset(){
     //Load program 2 into PDB #0
     initialise_pdb(0,"program2.prg");
     load_program(0);
+    resume_pdb(running_pdb);
     
     //lOAD PROGRAM 2 INTO PDB #1
     initialise_pdb(1,"program2.prg");
@@ -573,7 +574,6 @@ void syscall00(){exit_hypervisor();}
 	   print_to_screen(" in pdb ");
 	   print_hex(running_pdb);
 	   print_newline();
-	   resume_pdb(running_pdb);
 	
 	    exit_hypervisor();}
 	void syscall07(){exit_hypervisor();}
