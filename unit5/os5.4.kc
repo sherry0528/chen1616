@@ -518,7 +518,7 @@ void reset(){
   
     initialise_pdb(0,"program2.prg");
     load_program(0);
-    
+    	resume_pdb(0);
 
    //Load program 2 into PDB #1
    
