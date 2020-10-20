@@ -168,7 +168,7 @@ void initialise_pdb(unsigned char pdb_number,char *name)
     //    Then you can just do something along the lines of pn[...]=name[...] 
     //    in a loop to copy the name into place.
     //    (The arrays are both 17 bytes long)
-    char *pn=p->process_name;
+    p->process_name=char *pn; 
     for(i=0;i<17;i++) pn[i]=name[i];
 
   // Set process state as not running.
