@@ -551,8 +551,9 @@ XXX - Copy your trap handler functions and entry point tables from os5.2.kc
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
-	pause_pdb(0);
 	resume_pdb(0);
+	pause_pdb(0);
+	
 	
 	exit_hypervisor();}
 	void syscall06(){ 
