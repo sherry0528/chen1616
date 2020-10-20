@@ -559,7 +559,6 @@ void syscall00(){exit_hypervisor();}
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
-	 resume_pdb(running_pdb);
 	 pause_pdb(running_pdb);
 	exit_hypervisor();}
 	void syscall06(){
@@ -574,6 +573,7 @@ void syscall00(){exit_hypervisor();}
 	   print_to_screen(" in pdb ");
 	   print_hex(running_pdb);
 	   print_newline();
+	   resume_pdb(running_pdb);
 	
 	    exit_hypervisor();}
 	void syscall07(){exit_hypervisor();}
