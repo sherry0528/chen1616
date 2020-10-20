@@ -554,7 +554,54 @@ void reset(){
 				return (struct ipc_message *)
 				(ipc_messages+id*16);
 				}
+
+/*
+XXX -  Copy your syscall handler functions from os5.2.kc
+XXX - Don't forget to add describe_pdb(running_pdb); to your handler for SYSCALL $03
+
+XXX - Copy your RESET() routine from os5.2.kc
+XXX - Don't forget to call resume_pdb(0) immediately after load_program(0)
+
+XXX - Copy your trap handler functions and entry point tables from os5.2.kc
+*/
+
+void syscall00(){exit_hypervisor();}
+  void syscall01(){exit_hypervisor();}
+  void syscall02(){exit_hypervisor();}
+	void syscall03(){ 
 	
+	describe_pdb(running_pdb);
+	exit_hypervisor();}
+	void syscall04(){exit_hypervisor();}
+	void syscall05(){exit_hypervisor();}
+	void syscall06(){exit_hypervisor();}
+	void syscall07(){exit_hypervisor();}
+	void syscall08(){exit_hypervisor();}
+	void syscall09(){
+	struct process_descriptor_block *pdb
+	=(struct process_descriptor_block*)
+	((unsigned short)stored_pdbs+(((unsigned
+	short)running_pdb)<<8));
+	unsigned char caller_pid=pdb->process_id;
+	unsigned char message_id=get_next_message_id(caller_pid);
+	if (message_id!=0xFF) {
+	// We have a message to return
+	struct ipc_message*m=get_pointer_to_message(message_id);
+	// Copy it to the transfer area
+	dma_copy((unsigned short)m,$0300,16);
+	// De-queue the message
+	dequeue_message(message_id);
+	// Return from operating system back into the calling
+	// program.
+	exit_hypervisor();
+	} else {
+	// We have no message to return
+	// So set message to all $FFs
+	for(unsigned char i=0;i<16;i++)
+	*(unsigned char *)($0300+i)=0xff;
+	exit_hypervisor();
+}
+	}
 	void syscall10(){exit_hypervisor();}
 	void syscall11(){exit_hypervisor();}
 	void syscall12(){exit_hypervisor();}
