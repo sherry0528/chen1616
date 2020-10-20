@@ -18,8 +18,6 @@ const char BLACK = 0;
 const char BLUE = 6;
 const char WHITE = 1;
 
-char[] MESSAGE = "checkpoint 5.3 chen1616";
-
 const unsigned char STATE_NOTRUNNING = $00;
 const unsigned char STATE_NEW = $01;
 const unsigned char STATE_READY = $02;
@@ -482,7 +480,7 @@ void reset(){
    //Start with empty message queue
     ipc_message_count=0;
     // Create message from PID 0(OS) to PID 1
-    queue_message(0,1,1,1,"cpoint 6.1   ");
+    queue_message(0,1,1,1,"cpoint 6.1  ");
     //Initialise PDB slot 0 to hold program1
     initialise_pdb(0,"program1.prg");
     
