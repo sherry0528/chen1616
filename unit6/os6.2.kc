@@ -615,7 +615,7 @@ void syscall00(){exit_hypervisor();}
 }
 
 	void syscall0A(){
-	queue_message(0,$0300,0,0,$0301);
+	queue_message(0,$0300,1,1,$0301);
 	exit_hypervisor();
 	}
 	void syscall11(){exit_hypervisor();}
