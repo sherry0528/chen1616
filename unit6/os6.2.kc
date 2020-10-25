@@ -578,18 +578,8 @@ void syscall00(){exit_hypervisor();}
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
-	byte next_pdb = running_pdb;
-		pause_pdb(running_pdb);
-		for(byte i=0; i<8; i++){
-			if(i==next_pdb) continue;
-			struct process_descriptor_block *pdb
-				=(struct process_descriptor_block *)
-				((unsigned short)stored_pdbs+(((unsigned short)next_pdb)<<8));
-			if(pdb->process_state==STATE_READY){
-				next_pdb=i;
-				break;}
-				}	
-		resume_pdb(next_pdb);
+
+		resume_pdb(0);
 	exit_hypervisor();}
 	void syscall06(){exit_hypervisor();}
 	void syscall07(){exit_hypervisor();}
