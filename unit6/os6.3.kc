@@ -536,6 +536,8 @@ void reset(){
 		((unsigned short)ipc_messages+(ipc_message_count-1)*16); 
 		for(unsigned char i=0;i<16;i++) dest[i]=src[i];
 		ipc_message_count--;
+		
+		
     }
 			
 				unsigned char get_next_message_id(unsigned char receiver){
@@ -624,7 +626,7 @@ void syscall00(){exit_hypervisor();}
 	unsigned char message_id=get_next_message_id(caller_pid);
 	
   struct ipc_message*m=get_pointer_to_message(message_id);
-	queue_message(caller_pid,1,1,1,$0300);
+	queue_message(caller_pid,m->,1,1,$0300);
 	exit_hypervisor();
 	}
 	void syscall11(){exit_hypervisor();}
