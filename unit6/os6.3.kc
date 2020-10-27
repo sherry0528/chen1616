@@ -522,7 +522,7 @@ void reset(){
 		m->from=from; m->to=to; m->priority=priority; 
 		m->sequence=sequence;
 		for(unsigned char i=0;i<12;i++) m->message[i]=message[i];
-		ipc_message_count=1;
+		ipc_message_count++;
 		}
 		void dequeue_message(unsigned char message_num)
 		{
