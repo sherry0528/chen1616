@@ -526,17 +526,15 @@ void reset(){
 		}
 		void dequeue_message(unsigned char message_num)
 		{
-		char *last = (char *)ipc_messages;
 		if (message_num>=ipc_message_count) return;
 		if (message_num==(ipc_message_count-1)) {
+		char *last = (char *)(word)ipc_messages;
 		for(unsigned char i=0;i<16;i++) last[i]=0xff;
 		ipc_message_count--; 
 		return;
 		}
-		unsigned char *dest=(unsigned char *)
-		((unsigned short)ipc_messages+message_num*16);
-		unsigned char *src=(unsigned char *)
-		((unsigned short)ipc_messages+(ipc_message_count-1)*16); 
+		unsigned char *dest=(byte *)(word)(ipc_messages+message_num*16);
+		unsigned char *src=(byte *)(word)(ipc_messages+(ipc_message_count-1)*16); 
 		for(unsigned char i=0;i<16;i++) dest[i]=src[i];
 		for(unsigned char i=0;i<16;i++) src[i]=0xff;
 		ipc_message_count--;
