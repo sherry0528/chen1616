@@ -334,7 +334,8 @@ void dequeue_message(unsigned char message_num)
 		unsigned char *src=(unsigned char *)
 		((unsigned short)ipc_messages+(ipc_message_count-1)*16);
 		for(unsigned char i=0; i<16; i++) dest[i]=src[i];
-		for(unsigned char i=0; i<16; i++) src[i]=0xff;
+		src[i]=0xff;
+		//for(unsigned char i=0; i<16; i++) 
 		ipc_message_count--; 
 }
 
