@@ -912,7 +912,7 @@ void exit_hypervisor()
     load_program(1);
     
     //Run the program
-    resume_pdb();
+    resume_pdb(0);
     
            
     while(true){
