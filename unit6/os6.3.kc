@@ -909,7 +909,7 @@ void exit_hypervisor()
     
     //Run the program
     resume_pdb(1);
-    */
+    */ 
     print_to_screen("checkpoint");
     print_newline();
      print_to_screen("6.");
