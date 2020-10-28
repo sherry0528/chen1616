@@ -912,7 +912,7 @@ void exit_hypervisor()
     resume_pdb(1);
     */
     print_to_screen("checkpoint");
-    print_next_line();
+    print_newline();
     
            
     while(true){
