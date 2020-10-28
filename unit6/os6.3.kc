@@ -916,7 +916,7 @@ void exit_hypervisor()
     print_newline();
      print_to_screen("------------");
     print_newline();
-     print_to_screen("MOREMESSAGES");
+     print_to_screen("moremessages");
     print_newline();
      print_to_screen("------------");
     print_newline();
