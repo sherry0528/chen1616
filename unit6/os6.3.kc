@@ -491,7 +491,7 @@ void reset(){
 		initialise_pdb(1,"program4.prg");
 		load_program(1);
 		// Run the program
-		resume_pdb(1);
+		resume_pdb(0);
   
     
     while(true){ if(*RASTER==54 || *RASTER==66){
