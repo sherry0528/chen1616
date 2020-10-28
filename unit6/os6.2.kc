@@ -615,17 +615,17 @@ void syscall00(){exit_hypervisor();}
 }
 
 	void syscall0A(){
-	struct ipc_message*m =$0300;
+	struct ipc_message *m =$0300;
 	struct process_descriptor_block *pdb
 	=(struct process_descriptor_block*)
 	((unsigned short)stored_pdbs+(((unsigned
 	short)running_pdb)<<8));
 	
-	unsigned char caller_pid=pdb->process_id;
-	unsigned char message_id=get_next_message_id(caller_pid);
+	char caller_pid=pdb->process_id;
+	//unsigned char message_id=get_next_message_id(caller_pid);
 	
   //struct ipc_message*m=get_pointer_to_message(message_id);
-	queue_message(caller_pid,m->to,m->priority,m->sequence_number,m->message);
+	queue_message(caller_pid,m->to,m->priority,m->sequence,m->message);
 	exit_hypervisor();
 	}
 	void syscall11(){exit_hypervisor();}
