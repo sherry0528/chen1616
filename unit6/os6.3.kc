@@ -882,11 +882,11 @@ void exit_hypervisor()
 	
 	//Print the "hello world!" message
 		char* sc = SCREEN+40; //Display it one line down on the screen
-		char* msg = MESSAGE; //The messag to display
+	//	char* msg = MESSAGE; //The messag to display
 	
 	//A simple copy routine to copy the string
-		while(*msg){
-			*sc++ = *msg++;
+	//	while(*msg){
+	//		*sc++ = *msg++;
 			}
 
 //XXX - Add the following line inside your RESET() function just
