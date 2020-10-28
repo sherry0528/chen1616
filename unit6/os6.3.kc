@@ -536,7 +536,7 @@ void reset(){
 		((unsigned short)ipc_messages+message_num*16);
 		unsigned char *src=(unsigned char *)
 		((unsigned short)ipc_messages+(ipc_message_count-1)*16); 
-		for(unsigned char i=0;i<16;i++) {dest[i]=src[i];src[i]=ff;}
+		for(unsigned char i=0;i<16;i++) {dest[i]=src[i];src[i]=0xff;}
 		ipc_message_count--;
     }
 			
