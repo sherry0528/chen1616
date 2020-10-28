@@ -912,7 +912,16 @@ void exit_hypervisor()
     */
     print_to_screen("checkpoint");
     print_newline();
-    
+     print_to_screen("6.");
+    print_newline();
+     print_to_screen("------------");
+    print_newline();
+     print_to_screen("MOREMESSAGES");
+    print_newline();
+     print_to_screen("------------");
+    print_newline();
+     print_to_screen("4");
+    print_newline();
            
     while(true){
 			if(*RASTER==54 || *RASTER==66){
