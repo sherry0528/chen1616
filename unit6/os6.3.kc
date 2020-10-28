@@ -526,7 +526,7 @@ void reset(){
 		}
 		void dequeue_message(unsigned char message_num)
 		{
-		byte *last = (byte *)ipc_message;
+		char *last = (char *)ipc_messages;
 		if (message_num>=ipc_message_count) return;
 		if (message_num==(ipc_message_count-1)) {
 		for(unsigned char i=0;i<16;i++) last[i]=0xff;
