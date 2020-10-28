@@ -18,7 +18,7 @@ const char BLACK = 0;
 const char BLUE = 6;
 const char WHITE = 1;
 
-char[] MESSAGE = " ";
+//char[] MESSAGE = " ";
 
 const unsigned char STATE_NOTRUNNING = $00;
 const unsigned char STATE_NEW = $01;
@@ -893,8 +893,8 @@ void exit_hypervisor()
       //before the "//Loop forever with 2 bars" line
     current_screen_line = SCREEN;
     print_newline();
-		print_newline();
-		print_newline();
+		//print_newline();
+		//print_newline();
 		/*
     //Start wuth empty message queue
     ipc_message_count=0;
