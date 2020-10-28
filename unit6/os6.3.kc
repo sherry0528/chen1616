@@ -895,7 +895,7 @@ void exit_hypervisor()
     print_newline();
 		print_newline();
 		print_newline();
-		
+		/*
     //Start wuth empty message queue
     ipc_message_count=0;
     
@@ -910,6 +910,9 @@ void exit_hypervisor()
     
     //Run the program
     resume_pdb(1);
+    */
+    print_to_screen("checkpoint");
+    print_next_line();
     
            
     while(true){
