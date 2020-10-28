@@ -914,6 +914,8 @@ void exit_hypervisor()
     print_newline();
      print_to_screen("6.");
     print_newline();
+     print_to_screen("3");
+    print_newline();
      print_to_screen("------------");
     print_newline();
      print_to_screen("moremessages");
