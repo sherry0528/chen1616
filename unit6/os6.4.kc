@@ -593,7 +593,7 @@ void reset(){
 						if (m->to==receiver) {
 						if (m->priority>priority) {
 						best_message=i;
-						priority= m->priority
+						priority= m->priority;
 								}
 							}
 						}
