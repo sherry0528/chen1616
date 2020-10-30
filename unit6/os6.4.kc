@@ -587,11 +587,13 @@ void reset(){
 			
 				unsigned char get_next_message_id(unsigned char receiver){
 				unsigned char best_message=0xff;
-					for(unsigned char i=0;i<16;i++) {
+				unsigned char priority =0;
+					for(unsigned char i=0;i<ipc_message_count;i++) {
 					struct ipc_message *m=(struct ipc_message *)(ipc_messages+i*16);
-						if (m->to>receiver) {
-						if (best_message==0xff) {
+						if (m->to==receiver) {
+						if (m->priority>priority) {
 						best_message=i;
+						priority= m->priority
 								}
 							}
 						}
