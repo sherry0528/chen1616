@@ -583,7 +583,7 @@ void syscall00(){exit_hypervisor();}
 	exit_hypervisor();}
 	void syscall04(){exit_hypervisor();}
 	void syscall05(){
-    unsitned char next_pdb = running_pdb;
+    unsigned char next_pdb = running_pdb;
     pause_pdb(running_pdb);
     
     for(byte i=0;i<8;i++){
