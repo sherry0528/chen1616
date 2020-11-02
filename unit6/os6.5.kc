@@ -556,17 +556,21 @@ void reset(){
 		// We will have 16 slots of 16 bytes at $CB00-$CBFF
 		const unsigned char *ipc_messages = $CB00;
 		volatile unsigned char ipc_message_count;
+		
 		void queue_message(unsigned char from, unsigned char to,
-		unsigned char priority, unsigned char sequence,
-		unsigned char *message)
-		{
+		     unsigned char priority, unsigned char sequence,unsigned char *message)
+	   	{
 		  if (ipc_message_count>15) return;
 		  struct ipc_message *m=(struct ipc_message *)(ipc_messages+ipc_message_count*16);
-		  m->from=from; m->to=to; m->priority=priority; 
+		  m->from=from; 
+		  m->to=to; 
+		  m->priority=priority; 
 		  m->sequence=sequence;
-		  for(unsigned char i=0;i<12;i++) m->message[i]=message[i];
-		  ipc_message_count++;
-		}
+		  for(unsigned char i=0;i<12;i++){ 
+		  m->message[i]=message[i];
+		  ipc_message_count++;}
+		  if(p->process_state == STATE_BLOCKED){p->process_state=STATE_READY;}
+		  }
 		void dequeue_message(unsigned char message_num)
 		{
 		  if (message_num>=ipc_message_count) return;
@@ -579,8 +583,8 @@ void reset(){
 		  unsigned char *dest=(unsigned char *)((unsigned short)ipc_messages+message_num*16);
 		  unsigned char *src=(unsigned char *)((unsigned short)ipc_messages+(ipc_message_count-1)*16); 
 		  for(unsigned char i=0;i<16;i++) {
-		  dest[i]=src[i];
-		  src[i]= 0xff;}
+		       dest[i]=src[i];
+		       src[i]= 0xff;}
 		  
 		  ipc_message_count--;
     }
@@ -632,8 +636,7 @@ void syscall00(){exit_hypervisor();}
     for(byte i=0;i<8;i++){
        if(i == next_pdb) continue;
          struct process_descriptor_block *pdb
-         = (struct process_descriptor_block *)
-         ((unsigned short)stored_pdbs+(((unsigned short)i)<<8));
+         = (struct process_descriptor_block *)((unsigned short)stored_pdbs+(((unsigned short)i)<<8));
             if (pdb->process_state == STATE_READY){
                  next_pdb =i;
                  break;}
@@ -643,13 +646,9 @@ void syscall00(){exit_hypervisor();}
 	void syscall06(){exit_hypervisor();}
 	void syscall07(){exit_hypervisor();}
 	void syscall08(){exit_hypervisor();}
-
-
 	void syscall09() {
-	struct process_descriptor_block *pdb
-	=(struct process_descriptor_block*)
-	((unsigned short)stored_pdbs+(((unsigned
-	short)running_pdb)<<8));
+	struct process_descriptor_block *pdb 
+	=(struct process_descriptor_block*)((unsigned short)stored_pdbs+(((unsignedshort)running_pdb)<<8));
 	
 	unsigned char caller_pid=pdb->process_id;
 	unsigned char message_id=get_next_message_id(caller_pid);
@@ -657,12 +656,14 @@ void syscall00(){exit_hypervisor();}
 	if (message_id!=0xFF) {
 	// We have a message to return
 	struct ipc_message*m=get_pointer_to_message(message_id);
+	
 	// Copy it to the transfer area
 	dma_copy((unsigned short)m,$0300,16);
+	
 	// De-queue the message
 	dequeue_message(message_id);
-	// Return from operating system back into the calling
-	// program.
+	
+	// Return from operating system back into the calling program.
 	exit_hypervisor();
 	} else {
 	// We have no message to return
