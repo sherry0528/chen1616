@@ -561,9 +561,6 @@ void reset(){
 		void queue_message(unsigned char from, unsigned char to,
 		     unsigned char priority, unsigned char sequence,unsigned char *message)
 	   	{
-	   	struct process_descriptor_block *p
-      =(struct process_descriptor_block *)(((unsigned short)stored_pdbs)+
-       (((unsigned short)pdb_number)<<8));
 		  if (ipc_message_count>15) return;
 		  struct ipc_message *m=(struct ipc_message *)(ipc_messages+ipc_message_count*16);
 		  m->from=from; 
