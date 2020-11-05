@@ -57,8 +57,8 @@ void wu7_examine_file_system(void)
      //The location of the partition N entry in the MBR +
      // The offset of the LBA size field in a Partition Entry
      // Store above vvalue into the pre-defined variable p_start and p_size
-     p_start = extract_uint32(i + 0x8);
-     p_size = extract_uint32(i+0xC);
+     p_start = extract_uint32(pointer + 0x8);
+     p_size = extract_uint32(pointer+0xC);
      
    }
 
@@ -70,10 +70,10 @@ void wu7_examine_file_system(void)
   // by the number of 32-bit values (i.e., 4 bytes long each) that can be packed into a 512 byte sector).
   // Complexity guide: My solution was 11 lines long.
   sdcard_readsector(p_start);
-  f_sectors_per_fat = extract_uint32[0x024];
+  f_sectors_per_fat = extract_uint32(0x024);
   f_rootdir_cluster = extract_uint32(0x02C);
   f_reserved_sectors = extract_uint16(0x00E);
-  f_sectors_per_cluster = extract_uint32[0x00D];
+  f_sectors_per_cluster = extract_uint32(0x00D);
   
   //compute the values of f_sectors_per_fat, f_rootdir_cluster, f_reserved_sectors and f_sectors_per_cluster.
   f_fat1_sector = p_start + f_reserved_sectors;
