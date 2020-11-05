@@ -57,8 +57,8 @@ void wu7_examine_file_system(void)
      //The location of the partition N entry in the MBR +
      // The offset of the LBA size field in a Partition Entry
      // Store above vvalue into the pre-defined variable p_start and p_size
-     p_start = extract_uint32(pointer + 0x8);
-     p_size = extract_uint32(pointer+0xC);
+     p_start = extract_uint32((pointer + 0x08));
+     p_size = extract_uint32((pointer+0x0C));
      
    }
 
@@ -77,7 +77,7 @@ void wu7_examine_file_system(void)
   
   //compute the values of f_sectors_per_fat, f_rootdir_cluster, f_reserved_sectors and f_sectors_per_cluster.
   f_fat1_sector = p_start + f_reserved_sectors;
-  f_fat2_sector = f_fat1_sector + f_sectors_per_fat;
+  f_fat2_sector = (p_start + f_reserved_sectors + f_sectors_per_fat);
   f_rootdir_sector =(p_start + f_reserved_sectors+ f_sectors_per_fat*2);
   
   f_clusters =f_sectors_per_fat*128;
